@@ -86,6 +86,11 @@ document.getElementById("formBiodata").addEventListener("submit", function(e){
     let today = new Date();
 
     let umur = today.getFullYear() - tgl.getFullYear();
+    let bulan = today.getMonth() - tgl.getMonth();
+
+    if (bulan < 0 || (bulan === 0 && today.getDate() < tgl.getDate())) {
+        umur--;
+    }
 
     document.getElementById("hasil").innerHTML =
         "Nama: " + nama + "<br>" +
@@ -96,4 +101,5 @@ document.getElementById("formBiodata").addEventListener("submit", function(e){
 </script>
 
 </body>
+
 </html>
